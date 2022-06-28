@@ -17,7 +17,7 @@ public class PrimeiroMetodo {
         System.out.print("O curso que você deseja é o: ");
 
         Integer posicaoCursoEscolhido = scanner.nextInt();
-        Boolean posicaoValida = posicaoCursoEscolhido >= 0 && posicaoCursoEscolhido < cursos.length;
+        Boolean posicaoValida = verificaOpcaoEscolhidaPeloUsuario(posicaoCursoEscolhido, cursos);
         if (!posicaoValida) posicaoInvalida();
 
         String cursoEscolhido = cursos[posicaoCursoEscolhido];
@@ -34,11 +34,16 @@ public class PrimeiroMetodo {
 
         System.out.print("Sua forma de pagamento escolhida é: ");
         Integer posicaoFormaPagamentoEscolhida = scanner.nextInt();
-        Boolean posicaoValida = posicaoFormaPagamentoEscolhida >= 0 && posicaoFormaPagamentoEscolhida < formasPagamento.length;
+        Boolean posicaoValida = verificaOpcaoEscolhidaPeloUsuario(posicaoFormaPagamentoEscolhida, formasPagamento);
         if (!posicaoValida) posicaoInvalida();
 
         String formaPagamentoEscolhida = formasPagamento[posicaoFormaPagamentoEscolhida];
         return formaPagamentoEscolhida;
+    }
+
+    private  static Boolean verificaOpcaoEscolhidaPeloUsuario(Integer posicaoEscolhida, String[] vetor){
+        Boolean posicaoValida = posicaoEscolhida >= 0 && posicaoEscolhida < vetor.length;
+        return posicaoValida;
     }
 
     private  static void iterarEExibirPosicoesDoVetorDeString(String[] vetor){
